@@ -2,9 +2,9 @@ package com.socs.myplayground.test;
 
 import android.test.AndroidTestCase;
 
-import com.socs.myplayground.app.IMainPresenter;
-import com.socs.myplayground.app.IMainView;
-import com.socs.myplayground.app.MainPresenter;
+import com.socs.myplayground.ui.IMainPresenter;
+import com.socs.myplayground.ui.IMainView;
+import com.socs.myplayground.ui.MainPresenter;
 import com.socs.myplayground.model.User;
 import com.socs.myplayground.service.IPlaygroundService;
 
@@ -30,21 +30,20 @@ public class MainPresenterTestWithEasyMock extends AndroidTestCase {
         testUser.setId(1);
         testUser.setEmailAddress("test@test.com");
         testUser.setPassword("test");
-
-        service = createMock(IPlaygroundService.class);
-        expect(service.getUser(1)).andReturn(testUser);
-        replay(service);
-
-        view = createMock(IMainView.class);
-        presenter = new MainPresenter(view, service);
     }
 
     public void testLoginSuccess() {
         //Arrange
+        service = createMock(IPlaygroundService.class);
+        expect(service.getUserByEmailAddress(testUser.getEmailAddress())).andReturn(testUser);
+        replay(service);
+
+        view = createMock(IMainView.class);
         expect(view.getEmailAddress()).andReturn(testUser.getEmailAddress());
         expect(view.getPassword()).andReturn(testUser.getPassword());
         view.showLoginSuccess();
         replay(view);
+        presenter = new MainPresenter(view, service);
 
         //Act
         presenter.loginClicked();
@@ -55,10 +54,16 @@ public class MainPresenterTestWithEasyMock extends AndroidTestCase {
 
     public void testLoginFailure() {
         //Arrange
-        expect(view.getEmailAddress()).andReturn("test@test.com");
+        service = createMock(IPlaygroundService.class);
+        expect(service.getUserByEmailAddress(testUser.getEmailAddress())).andReturn(testUser);
+        replay(service);
+
+        view = createMock(IMainView.class);
+        expect(view.getEmailAddress()).andReturn(testUser.getEmailAddress());
         expect(view.getPassword()).andReturn("wrong");
         view.showLoginFailure();
         replay(view);
+        presenter = new MainPresenter(view, service);
 
         //Act
         presenter.loginClicked();

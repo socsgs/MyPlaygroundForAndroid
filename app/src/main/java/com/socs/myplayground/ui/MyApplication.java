@@ -1,4 +1,4 @@
-package com.socs.myplayground.app;
+package com.socs.myplayground.ui;
 
 import android.app.Application;
 import android.util.Log;

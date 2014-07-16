@@ -1,7 +1,5 @@
 package com.socs.myplayground.repository;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.socs.myplayground.model.User;

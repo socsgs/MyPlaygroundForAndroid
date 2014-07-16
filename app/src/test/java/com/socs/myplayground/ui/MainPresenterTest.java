@@ -2,9 +2,9 @@ package com.socs.myplayground.test;
 
 import android.test.InstrumentationTestCase;
 
-import com.socs.myplayground.app.IMainPresenter;
-import com.socs.myplayground.app.IMainView;
-import com.socs.myplayground.app.MainPresenter;
+import com.socs.myplayground.ui.IMainPresenter;
+import com.socs.myplayground.ui.IMainView;
+import com.socs.myplayground.ui.MainPresenter;
 import com.socs.myplayground.model.User;
 import com.socs.myplayground.repository.IPlaygroundRepository;
 import com.socs.myplayground.service.IPlaygroundService;

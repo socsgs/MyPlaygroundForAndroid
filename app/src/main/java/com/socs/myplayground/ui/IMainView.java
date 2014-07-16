@@ -1,4 +1,4 @@
-package com.socs.myplayground.app;
+package com.socs.myplayground.ui;
 
 /**
  * Created by SocsDrive on 7/11/2014.

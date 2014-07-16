@@ -1,4 +1,4 @@
-package com.socs.myplayground.app;
+package com.socs.myplayground.ui;
 
 import android.util.Log;
 
@@ -27,7 +27,7 @@ public class MainPresenter implements IMainPresenter {
     public void loginClicked() {
         Log.d(TAG, "login clicked");
 
-        User currentUser = playgroundService.getUser(mainView.getEmailAddress());
+        User currentUser = playgroundService.getUserByEmailAddress(mainView.getEmailAddress());
 
         if(currentUser != null) {
             String emailAddress = currentUser.getEmailAddress();

@@ -24,7 +24,7 @@ public class PlaygroundService implements IPlaygroundService {
     }
 
     @Override
-    public User getUser(String emailAddress) {
+    public User getUserByEmailAddress(String emailAddress) {
         return playgroundRepository.getUser(emailAddress);
     }
 

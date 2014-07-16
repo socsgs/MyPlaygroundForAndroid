@@ -7,7 +7,7 @@ import com.socs.myplayground.model.User;
  */
 public interface IPlaygroundService {
     User getUser(long id);
-    User getUser(String emailAddress);
+    User getUserByEmailAddress(String emailAddress);
     void createUser(User user);
     void updateUser(User user);
     void deleteUser(User user);

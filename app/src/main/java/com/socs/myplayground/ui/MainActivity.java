@@ -1,4 +1,4 @@
-package com.socs.myplayground.app;
+package com.socs.myplayground.ui;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.socs.myplayground.app.R;
 
 /**
  * Created by SocsDrive on 7/11/2014.
