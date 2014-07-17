@@ -10,8 +10,8 @@ import java.util.List;
 /**
  * Created by SocsDrive on 7/12/2014.
  */
-public class PlaygroundRepository implements IPlaygroundRepository {
-    private final static String TAG = "PlaygroundRepository";
+public class PlaygroundRepositoryWithJsonData implements IPlaygroundRepository {
+    private final static String TAG = "PlaygroundRepositoryWithJsonData";
     @Override
     public User getUser(long id) {
         List<User> allUsers = getAllUser();

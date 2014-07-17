@@ -43,9 +43,9 @@ public class MainPresenterTestWithEasyMock extends AndroidTestCase {
         expect(view.getPassword()).andReturn(testUser.getPassword());
         view.showLoginSuccess();
         replay(view);
-        presenter = new MainPresenter(view, service);
 
         //Act
+        presenter = new MainPresenter(view, service);
         presenter.loginClicked();
 
         //Assert

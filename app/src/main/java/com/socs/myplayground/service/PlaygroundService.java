@@ -2,7 +2,7 @@ package com.socs.myplayground.service;
 
 import com.socs.myplayground.model.User;
 import com.socs.myplayground.repository.IPlaygroundRepository;
-import com.socs.myplayground.repository.PlaygroundRepository;
+import com.socs.myplayground.repository.PlaygroundRepositoryWithJsonData;
 
 /**
  * Created by SocsDrive on 7/12/2014.
@@ -11,7 +11,7 @@ public class PlaygroundService implements IPlaygroundService {
     IPlaygroundRepository playgroundRepository;
 
     public PlaygroundService() {
-        this(new PlaygroundRepository());
+        this(new PlaygroundRepositoryWithJsonData());
     }
 
     public PlaygroundService(IPlaygroundRepository playgroundRepository) {

@@ -11,40 +11,42 @@ import com.socs.myplayground.service.PlaygroundService;
  */
 public class MainPresenter implements IMainPresenter {
     private static final String TAG = "MainPresenter";
-    private IMainView mainView;
+    private IMainView view;
     private IPlaygroundService playgroundService;
 
-    public MainPresenter(IMainView mainView) {
-        this(mainView, new PlaygroundService());
+    public MainPresenter(IMainView view) {
+        this(view, new PlaygroundService());
     }
 
-    public MainPresenter(IMainView mainView, IPlaygroundService playgroundService) {
-        this.mainView =  mainView;
+    public MainPresenter(IMainView view, IPlaygroundService playgroundService) {
+        this.view = view;
         this.playgroundService = playgroundService;
     }
 
     @Override
     public void loginClicked() {
         Log.d(TAG, "login clicked");
+        String emailAddressFromView = view.getEmailAddress();
+        String passwordFromView = view.getPassword();
 
-        User currentUser = playgroundService.getUserByEmailAddress(mainView.getEmailAddress());
+        User currentUser = playgroundService.getUserByEmailAddress(emailAddressFromView);
 
         if(currentUser != null) {
-            String emailAddress = currentUser.getEmailAddress();
-            String password = currentUser.getPassword();
+            String emailAddressFromService = currentUser.getEmailAddress();
+            String passwordFromService = currentUser.getPassword();
 
-            if(mainView.getEmailAddress().equals(emailAddress) && mainView.getPassword().equals(password)){
+            if(emailAddressFromView.equals(emailAddressFromService) && passwordFromView.equals(passwordFromService)){
                 Log.d(TAG, "Email address and the password matched");
-                mainView.showLoginSuccess();
+                view.showLoginSuccess();
             }
             else {
                 Log.d(TAG, "Email address and the password does not match");
-                mainView.showLoginFailure();
+                view.showLoginFailure();
             }
         }
         else {
             Log.d(TAG, "User not found");
-            mainView.showUserNotFound();
+            view.showUserNotFound();
         }
 
     }
