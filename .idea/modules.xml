@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyPlayground.iml" filepath="$PROJECT_DIR$/MyPlayground.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MyPlaygroundWithEasyMock.iml" filepath="$PROJECT_DIR$/MyPlaygroundWithEasyMock.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/myplayground/myplayground.iml" filepath="$PROJECT_DIR$/myplayground/myplayground.iml" />
     </modules>
   </component>
 </project>

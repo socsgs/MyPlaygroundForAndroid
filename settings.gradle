@@ -1,1 +1,1 @@
-include ':app', ':myplayground'
+include ':app'

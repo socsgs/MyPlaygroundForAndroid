@@ -8,9 +8,8 @@
         <option name="gradleHome" value="C:/gradle-2.0" />
         <option name="modules">
           <set>
-            <option value="C:\Users\geethas\Documents\GitHub\MyPlayground" />
-            <option value="C:\Users\geethas\Documents\GitHub\MyPlayground\app" />
-            <option value="C:\Users\geethas\Documents\GitHub\MyPlayground\myplayground" />
+            <option value="C:\Users\SocsDrive\Documents\GitHub\MyPlayground" />
+            <option value="C:\Users\SocsDrive\Documents\GitHub\MyPlayground\app" />
           </set>
         </option>
       </GradleProjectSettings>
