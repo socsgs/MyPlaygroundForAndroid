@@ -15,7 +15,7 @@ public class MainPresenter implements IMainPresenter {
     private IPlaygroundService playgroundService;
 
     public MainPresenter(IMainView view) {
-        this(view, new PlaygroundService());
+        this(view, new PlaygroundService(view.getApplicationContext()));
     }
 
     public MainPresenter(IMainView view, IPlaygroundService playgroundService) {

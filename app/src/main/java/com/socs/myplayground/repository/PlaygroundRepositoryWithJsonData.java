@@ -60,6 +60,5 @@ public class PlaygroundRepositoryWithJsonData implements IPlaygroundRepository {
         List<User> allUsers = gson.fromJson(allUsersJsonString, userListType);
 
         return allUsers;
-
     }
 }
