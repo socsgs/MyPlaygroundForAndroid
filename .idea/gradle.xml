@@ -8,8 +8,8 @@
         <option name="gradleHome" value="C:/gradle-2.0" />
         <option name="modules">
           <set>
-            <option value="C:\GitHub\MyPlayground" />
-            <option value="C:\GitHub\MyPlayground\app" />
+            <option value="C:\GitHub\MyPlaygroundForAndroid" />
+            <option value="C:\GitHub\MyPlaygroundForAndroid\app" />
           </set>
         </option>
       </GradleProjectSettings>

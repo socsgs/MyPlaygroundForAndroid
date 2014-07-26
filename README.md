@@ -6,6 +6,8 @@ To play with various libraries and design patterns for an Android project, so fa
 ## Patterns
 - MVP
 
+## Software principles
+- Unit testing with mocks
 
 ## Libraries
 - EasyMock
