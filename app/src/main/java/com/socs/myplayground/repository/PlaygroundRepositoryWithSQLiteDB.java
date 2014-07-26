@@ -118,7 +118,6 @@ public class PlaygroundRepositoryWithSQLiteDB implements IPlaygroundRepository {
         List<User> allUsers = gson.fromJson(allUsersJsonString, userListType);
 
         return allUsers;
-
     }
 
 }
