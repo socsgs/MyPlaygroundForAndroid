@@ -2,3 +2,4 @@
 .gradle
 /local.properties
 /.idea/workspace.xml
+build/dex-cache/cache.xml
