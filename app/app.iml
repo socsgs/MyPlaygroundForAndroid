@@ -47,6 +47,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/assets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/instrumentationTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/instrumentationTest/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
@@ -71,7 +74,9 @@
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
+    <orderEntry type="library" exported="" name="robotium-solo-5.2.1-javadoc" level="project" />
     <orderEntry type="library" exported="" name="dexmaker-1.0" level="project" />
+    <orderEntry type="library" exported="" name="robotium-solo-5.2.1" level="project" />
     <orderEntry type="library" exported="" name="easymock-3.2" level="project" />
   </component>
 </module>

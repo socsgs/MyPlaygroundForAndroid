@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.socs.myplayground.model.User;
 import com.socs.myplayground.repository.IPlaygroundRepository;
-import com.socs.myplayground.repository.PlaygroundRepositoryWithJsonData;
 import com.socs.myplayground.repository.PlaygroundRepositoryWithSQLiteDB;
 
 /**

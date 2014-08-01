@@ -1,4 +1,4 @@
-package com.socs.myplayground.test;
+package com.socs.myplayground.tests.ui;
 
 import android.test.AndroidTestCase;
 

@@ -1,18 +1,12 @@
 package com.socs.myplayground.repository;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.socs.myplayground.model.User;
 import com.socs.myplayground.repository.db.PlaygroundContract;
 import com.socs.myplayground.repository.db.PlaygroundDatabaseHelper;
-
-import java.lang.reflect.Type;
-import java.util.List;
 
 /**
  * Created by GeethaS on 7/17/2014.
@@ -23,9 +17,6 @@ public class PlaygroundRepositoryWithSQLiteDB implements IPlaygroundRepository {
     PlaygroundDatabaseHelper dbHelper;
     public PlaygroundRepositoryWithSQLiteDB(Context context) {
         dbHelper = new PlaygroundDatabaseHelper(context);
-        for(User user: getAllUserFromJsonString()) {
-            insertData(user);
-        }
     }
 
     @Override
@@ -59,12 +50,12 @@ public class PlaygroundRepositoryWithSQLiteDB implements IPlaygroundRepository {
                     sortOrder
             );
 
-            c.moveToFirst();
+            boolean recordExists = c.moveToFirst();
             int columnIndexUserId = c.getColumnIndex(PlaygroundContract.User.COLUMN_NAME_USER_ID);
             int columnIndexUserName = c.getColumnIndex(PlaygroundContract.User.COLUMN_NAME_USER_NAME);
             int columnIndexUserEmailAddress = c.getColumnIndex(PlaygroundContract.User.COLUMN_NAME_USER_EMAIL_ADDRESS);
             int columnIndexUserPassword = c.getColumnIndex(PlaygroundContract.User.COLUMN_NAME_USER_PASSWORD);
-            while(c.moveToFirst()) {
+            while(recordExists) {
                 if(c.getString(columnIndexUserEmailAddress).equals(emailAddress)) {
                     user = new User();
                     user.setId(c.getInt(columnIndexUserId));
@@ -73,6 +64,7 @@ public class PlaygroundRepositoryWithSQLiteDB implements IPlaygroundRepository {
                     user.setPassword(c.getString(columnIndexUserPassword));
                     break;
                 }
+                recordExists = c.moveToNext();
             }
 
             c.close();
@@ -96,29 +88,5 @@ public class PlaygroundRepositoryWithSQLiteDB implements IPlaygroundRepository {
     public void deleteUser(User user) {
 
     }
-
-    private void insertData(User user) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(PlaygroundContract.User.COLUMN_NAME_USER_ID, user.getId());
-        values.put(PlaygroundContract.User.COLUMN_NAME_USER_NAME, user.getName());
-        values.put(PlaygroundContract.User.COLUMN_NAME_USER_EMAIL_ADDRESS, user.getEmailAddress());
-        values.put(PlaygroundContract.User.COLUMN_NAME_USER_PASSWORD, user.getPassword());
-
-        long rowId = -1;
-        if (db != null) {
-            rowId = db.insert(PlaygroundContract.User.TABLE_NAME, null, values);
-        }
-    }
-
-    private List<User> getAllUserFromJsonString() {
-        String allUsersJsonString  = "[{\"id\":1,\"name\":\"Test, User 1\",\"emailAddress\":\"test1@test.com\",\"password\":\"test123\"},{\"id\":2,\"name\":\"Test, User 2\",\"emailAddress\":\"test2@test.com\",\"password\":\"test123\"},{\"id\":3,\"name\":\"Test, User 3\",\"emailAddress\":\"test3@test.com\",\"password\":\"test123\"},{\"id\":4,\"name\":\"Test, User 4\",\"emailAddress\":\"test4@test.com\",\"password\":\"test123\"},{\"id\":5,\"name\":\"Test, User 5\",\"emailAddress\":\"test5@test.com\",\"password\":\"test123\"}]";
-        Gson gson = new Gson();
-        Type userListType = new TypeToken<List<User>>(){}.getType();
-        List<User> allUsers = gson.fromJson(allUsersJsonString, userListType);
-
-        return allUsers;
-    }
-
 }
 
